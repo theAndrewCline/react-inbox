@@ -38,7 +38,7 @@ export default class Emails extends Component {
         const box = this.props.box
 
         return ( 
-            <div>
+            <div className='Messages'>
                 <ul>{this.state[box].map(x => <li>{x.subject}</li> )}</ul>
             </div>
         );
