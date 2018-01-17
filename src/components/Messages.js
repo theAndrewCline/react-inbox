@@ -37,10 +37,12 @@ export default class Messages extends Component {
     }
 
     openMessage(event) {
-        
+       this.setState({selectedMessage: event.target.id}) 
     }
 
     render() {
+
+        let currentMessage = this.state.messages[this.state.selectedMessage]
         const box = this.props.box
         let messages = [] 
 
@@ -53,7 +55,7 @@ export default class Messages extends Component {
         return ( 
             <div className='Messages'>
                 <ul>{messages.map(x => <li onClick={this.openMessage} id={x.id} >{x.subject}</li> )}</ul>
-                {/* < Viewer currentMessage={}/> */}
+                < Viewer currentMessage={currentMessage}/>
             </div>
         );
     }
