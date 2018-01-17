@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Emails from './components/Emails.jsx'
+import Messages from './components/Messages'
 import Menu from './components/Menu'
 
 class App extends Component {
@@ -27,7 +27,7 @@ class App extends Component {
     return (
       <div className="App">
      < Menu switchBox={this.switchBox}/>
-     < Emails box={currentBox}/> 
+     < Messages box={currentBox}/> 
       </div>
     );
   }
