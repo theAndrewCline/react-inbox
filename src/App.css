@@ -5,11 +5,32 @@
 }
 .Menu {
   border: solid 1px;
+  border-radius: 5px;
   width: 200px;  
   padding: 1rem;
+  background: #64B5F6;
 }
 .Messages {
   border: solid 1px; 
+  border-radius: 5px;
   padding: 1rem;
   width:100%;
+  background: #E57373; 
+}
+.message {
+  border-radius: 5px;
+  background: #E3F2FD;
+  padding: .5rem; 
+  margin: .5rem; 
+}
+.Viewer {
+  border: solid 1px; 
+  border-radius: 5px;
+  padding: 1rem; 
+  margin: 1rem;
+  background: #FFF;
+}
+
+ul {
+  list-style: none; 
 }

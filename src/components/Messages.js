@@ -11,21 +11,29 @@ export default class Messages extends Component {
             selectedMessage: 0,
             messages: [ {
                     id: 0,
+                    from: 'Planning Center Online', 
+                    to: 'Andrew Cline',
                     subject: 'Planning Center Notification',
                     message: 'This is from your Church, you are scheduled to play Bass Guitar on 10/31',
                     tags: ['Inbox']
                 },{
                     id: 1,
-                    subject: 'Thrity-Thirty Coffee',
+                    from: 'Thirty-thirty Coffee', 
+                    to: 'Andrew Cline',
+                    subject: 'Coffee Order',
                     message: 'Your order is ready for pick-up',
                     tags: ['Inbox']
                 },{
                     id: 2,  
+                    from: 'Unknown Personal', 
+                    to: 'Andrew Cline',
                     subject: 'This is clearly spam',
                     message: 'you should probably not open this',
                     tags: ['Junk']
                 },{
                     id: 3,
+                    from: 'Really Unknown Person', 
+                    to: 'Andrew Cline',
                     subject: 'This is also spam',
                     message: 'you should probably not open this',
                     tags: ['Junk']
@@ -54,7 +62,8 @@ export default class Messages extends Component {
 
         return ( 
             <div className='Messages'>
-                <ul>{messages.map(x => <li onClick={this.openMessage} id={x.id} >{x.subject}</li> )}</ul>
+                <h3>Messages</h3>
+                <ul>{messages.map(x => <li className="message" onClick={this.openMessage} id={x.id} >{x.subject}</li> )}</ul>
                 < Viewer currentMessage={currentMessage}/>
             </div>
         );
