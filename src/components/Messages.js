@@ -13,19 +13,19 @@ export default class Messages extends Component {
             messages: [ {
                     subject: 'Planning Center Notification',
                     message: 'This is from your Church, you are scheduled to play Bass Guitar on 10/31',
-                    tags: ['inbox']
+                    tags: ['Inbox']
                 },{
                     subject: 'Thrity-Thirty Coffee',
                     message: 'Your order is ready for pick-up',
-                    tags: ['inbox']
+                    tags: ['Inbox']
                 },{
                     subject: 'This is clearly spam',
                     message: 'you should probably not open this',
-                    tags: ['junk']
+                    tags: ['Junk']
                 },{
                     subject: 'This is also spam',
                     message: 'you should probably not open this',
-                    tags: ['junk']
+                    tags: ['Junk']
                 }
             ]
         }

@@ -7,10 +7,7 @@ export default class Menu extends Component {
         super()
 
         this.state = {
-            tags: [
-                    {name:'Main Inbox', box:'inbox'}, 
-                    { name:'Junk Mail', box:'junk'}
-                ]
+            tags: ['Inbox' , 'Junk']
         }
 
         this.addTag = this.addTag.bind(this)
@@ -18,30 +15,23 @@ export default class Menu extends Component {
 
     addTag(event) {
 // tag {name: 'Example', box:'example'}
-        const tag = {
-            name:event.target.parentElement.children[0].value, 
-            box:event.target.parentElement.children[2].value, 
-        }
+        const tag = event.target.parentElement.children[0].value 
         const newTags = [...this.state.tags]
         newTags.push(tag)
         this.setState(prev => ({
             tags: newTags
         }))
         event.target.parentElement.children[0].value = ""
-        event.target.parentElement.children[2].value = ""
     }
     render() {
         return (
             <div className='Menu'>
                 <h1>Menu</h1>
                 {this.state.tags.map((tag) => ( 
-                    <Tag name={tag.name} box={tag.box} switchBox={this.props.switchBox} />
+                    <Tag name={tag} switchBox={this.props.switchBox} />
                 ))}
                 <div className='add-input-component'>
                     Name:
-                    <input/>
-                    <br/>
-                    Box:
                     <input/>
                     <button onClick={this.addTag}>Add Inbox</button>
                 </div>
