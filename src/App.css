@@ -1,0 +1,15 @@
+.App {
+  display: flex;
+  min-height: 40vh;
+  margin: 1rem; 
+}
+.Menu {
+  border: solid 1px;
+  width: 200px;  
+  padding: 1rem;
+}
+.Messages {
+  border: solid 1px; 
+  padding: 1rem;
+  width:100%;
+}
