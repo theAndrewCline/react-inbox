@@ -5,14 +5,15 @@ export default class Viewer extends Component {
         super()
 
         this.state = {
-
+            messageToDisplay: this.props.currentMessage
         }
     }
 
     render() {
+
         return (
             <div className='Viewer'>
-                
+                <p>{this.state.messageToDisplay}</p>
             </div>
             )
     }

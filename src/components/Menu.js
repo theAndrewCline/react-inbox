@@ -14,7 +14,7 @@ export default class Menu extends Component {
     }
 
     addTag(event) {
-// tag {name: 'Example', box:'example'}
+// tag just needs to be a string
         const tag = event.target.parentElement.children[0].value 
         const newTags = [...this.state.tags]
         newTags.push(tag)
