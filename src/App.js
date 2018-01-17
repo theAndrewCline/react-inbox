@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Emails from './components/Emails.jsx'
+import Messages from './components/Messages'
 import Menu from './components/Menu'
 
-class App extends Component {
+export default class App extends Component {
   constructor() {
     super()
     this.state = {
-      currentBox: 'inbox'
+      currentBox: 'Inbox'
     }
 
     this.switchBox = this.switchBox.bind(this)
   }
 
   switchBox(e) {
-    const box = e.target.dataset.box
+    const box = e.target.innerHTML
     this.setState(prev => {
       return {currentBox: box}
     })
@@ -26,11 +26,9 @@ class App extends Component {
 
     return (
       <div className="App">
-     < Menu switchBox={this.switchBox}/>
-     < Emails box={currentBox}/> 
+        < Menu switchBox={this.switchBox}/>
+        < Messages box={currentBox}/> 
       </div>
     );
   }
 }
-
-export default App;
