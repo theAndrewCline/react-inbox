@@ -8,10 +8,12 @@ export default class App extends Component {
   constructor() {
     super()
     this.state = {
-      currentBox: 'Inbox'
+      currentBox: 'Inbox',
+      tags: ['Inbox' , 'Junk']
     }
 
     this.switchBox = this.switchBox.bind(this)
+    this.addTag = this.addTag.bind(this)
   }
 
   switchBox(e) {
@@ -21,13 +23,25 @@ export default class App extends Component {
     })
   }  
 
+    addTag(event) {
+// tag just needs to be a string
+        const tag = event.target.parentElement.children[0].value 
+        const newTags = [...this.state.tags]
+        newTags.push(tag)
+        this.setState(prev => ({
+            tags: newTags
+        }))
+        event.target.parentElement.children[0].value = ""
+      }
+
   render() {
     const {currentBox} = this.state; 
+    const {tags} = this.state
 
     return (
       <div className="App">
-        < Menu switchBox={this.switchBox}/>
-        < Messages box={currentBox}/> 
+        < Menu switchBox={this.switchBox} addTag={this.addTag} tags={tags}/>
+        < Messages box={currentBox} tags={tags}/> 
       </div>
     );
   }

@@ -42,11 +42,17 @@ export default class Messages extends Component {
         }
 
         this.openMessage = this.openMessage.bind(this)
+        this.addTagToMessage = this.addTagToMessage.bind(this)
     }
 
     openMessage(event) {
        this.setState({selectedMessage: event.target.id}) 
     }
+
+    addTagToMessage(newTag) {
+        
+    }
+
 
     render() {
 
