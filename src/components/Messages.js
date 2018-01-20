@@ -49,14 +49,24 @@ export default class Messages extends Component {
        this.setState({selectedMessage: event.target.id}) 
     }
 
-    addTagToMessage(newTag) {
-        
+    addTagToMessage(newTag , messageID) {
+        let currentMessage = {}
+        this.state.messages.forEach( message => {
+            if(message.id = messageID) currentMessage = message 
+        })
+
+        let currentMessageTags = currentMessage.tags
+        let newTags = currentMessageTags.push(newTag); 
+        // need help with this part of the function
+        this.setState({ messages:[messageID]})
     }
+
 
 
     render() {
 
         let currentMessage = this.state.messages[this.state.selectedMessage]
+        const tags = this.props.tags
         const box = this.props.box
         let messages = [] 
 
@@ -70,7 +80,7 @@ export default class Messages extends Component {
             <div className='Messages'>
                 <h3>Messages</h3>
                 <ul>{messages.map(x => <li className="message" onClick={this.openMessage} id={x.id} >{x.subject}</li> )}</ul>
-                < Viewer currentMessage={currentMessage}/>
+                < Viewer currentMessage={currentMessage} tags={tags}/>
             </div>
         );
     }
