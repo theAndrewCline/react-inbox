@@ -278,11 +278,14 @@ export default class Messages extends Component {
         this.setState( prev => ({selectedMessage: index}))
     }
 
-    addTagToMessage(newTag , messageID) {
-        const messagesCopy = [...this.setState.messages]
+    addTagToMessage(event) {
+        console.log('Anything')
+        const newTag = event.target.innerText
+        const messageID = event.target.dataset.id
+        const messagesCopy = [...this.state.messages]
         let currentMessage = {}
         messagesCopy.forEach( message => {
-            if(message.id === messageID) currentMessage = message 
+            if(message.id === Number(messageID)) currentMessage = message 
         })
 
         let currentMessageTags = currentMessage.tags
@@ -319,7 +322,7 @@ export default class Messages extends Component {
                     </li>
                 ))}</ul>
 
-                <Viewer addTagToMessage={addTagToMessage} currentMessage={currentMessage} tags={tags} />
+                <Viewer addTagToMessage={this.addTagToMessage} currentMessage={currentMessage} tags={tags} />
             </div>
         );
     }
