@@ -8,8 +8,8 @@ export default class Menu extends Component {
         return (
             <div className='Menu'>
                 <h1>Menu</h1>
-                {this.props.tags.map((tag) => ( 
-                    <Tag name={tag} switchBox={this.props.switchBox} />
+                {this.props.tags.map((tag , i) => ( 
+                    <Tag key={i} name={tag} switchBox={this.props.switchBox} />
                 ))}
                 <div className='add-input-component'>
                     Name:

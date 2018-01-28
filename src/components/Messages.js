@@ -269,21 +269,29 @@ export default class Messages extends Component {
     }
 
     openMessage(event) {
-       this.setState({selectedMessage: event.target.id})
+        let index
+        this.state.messages.forEach((message, i) => {
+            if (Number(message.id) === Number(event.target.id)) {
+                index = i 
+            }
+        })
+        this.setState( prev => ({selectedMessage: index}))
     }
 
     addTagToMessage(newTag , messageID) {
+        const messagesCopy = [...this.setState.messages]
         let currentMessage = {}
-        this.state.messages.forEach( message => {
-            if(message.id = messageID) currentMessage = message
+        messagesCopy.forEach( message => {
+            if(message.id === messageID) currentMessage = message 
         })
 
         let currentMessageTags = currentMessage.tags
-        let newTags = currentMessageTags.push(newTag);
+        currentMessageTags.push(newTag); 
         // need help with this part of the function
-        this.setState({ messages:[messageID]})
+        this.setState( prev => ({
+            messages: messagesCopy
+        }))
     }
-
 
 
     render() {
@@ -303,15 +311,15 @@ export default class Messages extends Component {
             <div className='Messages'>
                 <h3>Messages</h3>
 
-                <ul>{messages.map(x => (
-                    <li className="message"
+                <ul>{messages.map((x , i) => (
+                    <li className="message" key={i}
                         onClick={this.openMessage}
                         id={x.id}>
                         {x.subject}
                     </li>
                 ))}</ul>
 
-                <Viewer currentMessage={currentMessage} tags={tags} />
+                <Viewer addTagToMessage={addTagToMessage} currentMessage={currentMessage} tags={tags} />
             </div>
         );
     }
