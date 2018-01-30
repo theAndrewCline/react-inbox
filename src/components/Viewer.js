@@ -11,6 +11,9 @@ export default class Viewer extends Component {
                 <p><strong>Subject: {this.props.currentMessage.subject}</strong></p>
                 <hr/>
                 <p>{this.props.currentMessage.message}</p>
+                <hr/>
+
+                {this.props.currentMessage.tags.map( (x , i) => <p key={i} >{x}</p>) }
             </div>
             )
     }
