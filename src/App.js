@@ -35,8 +35,7 @@ export default class App extends Component {
       }
 
   render() {
-    const {currentBox} = this.state; 
-    const {tags} = this.state
+    const {currentBox, tags} = this.state; 
 
     return (
       <div className="App">

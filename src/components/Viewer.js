@@ -6,13 +6,16 @@ import ViewerFooter from './Viewer/ViewerFooter'
 export default class Viewer extends Component {
 
     render() {
+
+        const { tags, currentMessage, addTagToMessage } = this.props
+
         return (
             <div className='Viewer'>
-                <ViewerHeader tags={this.props.tags} currentMessage={this.props.currentMessage} addTagToMessage={this.props.addTagToMessage} />
+                <ViewerHeader tags={tags} currentMessage={currentMessage} addTagToMessage={addTagToMessage} />
                 <hr/>
-                <ViewerBody currentMessage={this.props.currentMessage}/>
+                <ViewerBody currentMessage={currentMessage}/>
                 <hr/>
-                <ViewerFooter currentMessage={this.props.currentMessage}/>
+                <ViewerFooter currentMessage={currentMessage}/>
             </div>
             )
     }

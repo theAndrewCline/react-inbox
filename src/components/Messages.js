@@ -299,9 +299,8 @@ export default class Messages extends Component {
 
     render() {
 
-        let currentMessage = this.state.messages[this.state.selectedMessage]
-        const tags = this.props.tags
-        const box = this.props.box
+        const currentMessage = this.state.messages[this.state.selectedMessage]
+        const { tags, box } = this.props
         let messages = []
 
         this.state.messages.forEach((i) => {
