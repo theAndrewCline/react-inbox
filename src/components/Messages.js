@@ -266,6 +266,7 @@ export default class Messages extends Component {
 
         this.openMessage = this.openMessage.bind(this)
         this.addTagToMessage = this.addTagToMessage.bind(this)
+        this.removeTagFromMessage = this.removeTagFromMessage.bind(this)
     }
 
     openMessage(event) {
@@ -279,7 +280,6 @@ export default class Messages extends Component {
     }
 
     addTagToMessage(event) {
-        console.log('Anything')
         const newTag = event.target.innerText
         const messageID = event.target.dataset.id
         const messagesCopy = [...this.state.messages]
@@ -290,12 +290,15 @@ export default class Messages extends Component {
 
         let currentMessageTags = currentMessage.tags
         currentMessageTags.push(newTag); 
-        // need help with this part of the function
         this.setState( prev => ({
             messages: messagesCopy
         }))
     }
 
+    removeTagFromMessage(event) {
+        const targetTag = event.target.innerText
+        console.log(targetTag)
+    }
 
     render() {
 
@@ -321,7 +324,12 @@ export default class Messages extends Component {
                     </li>
                 ))}</ul>
 
-                <Viewer addTagToMessage={this.addTagToMessage} currentMessage={currentMessage} tags={tags} />
+                <Viewer 
+                    addTagToMessage={this.addTagToMessage}
+                    removeTagFromMessage={this.removeTagFromMessage} 
+                    currentMessage={currentMessage} 
+                    tags={tags} 
+                />
             </div>
         );
     }
