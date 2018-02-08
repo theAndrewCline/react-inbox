@@ -7,6 +7,10 @@ This will be a react made inbox. The hope is to make a design for what an inbox 
 - [x] Emails should be able to have multiple tags, so they can be sorted into multiple inboxes.
 - [x] It should be able to create new inboxes/new tags.
 - [ ] Tags should be able to be removed
-- [ ] Emails should have a status of read/unread that can be toggled by openning the email. 
+- [ ] Emails should have a status of read/unread that can be toggled by opening the email. 
 This status should also be able to be manually applied.
+- [ ] Style! Style! Style!
+    - [ ] mobile first, responsive design 
+    - [ ] Make use of CSS Grid 
+    - [ ] Mark a light and dark mode
 
