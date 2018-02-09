@@ -295,7 +295,6 @@ export default class Messages extends Component {
         }))
     }
 
-    // need help with this function/still working on this
     removeTagFromMessage(event) {
         const targetTag = event.target.innerText
         const messageID = this.state.selectedMessage
@@ -304,7 +303,7 @@ export default class Messages extends Component {
         messagesCopy.forEach(message => { if (message.id === Number(messageID)) targetMessage = message })
         targetMessage.tags.forEach((tag, tagI) => {
             if (tag === targetTag) {
-                targetMessage.tags.slice(tagI , 1)
+                targetMessage.tags.splice(tagI , 1)
             }
         })
         this.setState( prev => ({
