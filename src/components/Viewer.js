@@ -7,7 +7,7 @@ export default class Viewer extends Component {
 
     render() {
 
-        const { tags, currentMessage, addTagToMessage } = this.props
+        const { addTagToMessage, currentMessage, removeTagFromMessage, tags } = this.props
 
         return (
             <div className='Viewer'>
@@ -15,7 +15,10 @@ export default class Viewer extends Component {
                 <hr/>
                 <ViewerBody currentMessage={currentMessage}/>
                 <hr/>
-                <ViewerFooter currentMessage={currentMessage}/>
+                <ViewerFooter 
+                    currentMessage={currentMessage}
+                    removeTagFromMessage={removeTagFromMessage}
+                />
             </div>
             )
     }
