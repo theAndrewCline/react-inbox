@@ -295,9 +295,23 @@ export default class Messages extends Component {
         }))
     }
 
+    // need help with this function/still working on this
     removeTagFromMessage(event) {
         const targetTag = event.target.innerText
-        console.log(targetTag)
+        const messageID = this.state.selectedMessage
+        const messagesCopy = [...this.state.messages]
+        let targetMessage  
+        messagesCopy.forEach(message => { if (message.id === Number(messageID)) targetMessage = message })
+        targetMessage.tags.forEach((tag, tagI) => {
+            if (tag === targetTag) {
+                targetMessage.tags.slice(tagI , 1)
+            }
+        })
+        this.setState( prev => ({
+            messages: messagesCopy
+        }))
+
+        console.log(targetMessage.tags)
     }
 
     render() {
