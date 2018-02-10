@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Viewer from './Viewer'
+import Message from './Message'
 
 export default class Messages extends Component {
 
