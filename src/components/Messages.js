@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Viewer from './Viewer'
-import Message from './Message'
+// import Message from './Message'
 
 export default class Messages extends Component {
 
@@ -320,6 +320,8 @@ export default class Messages extends Component {
         const { tags, box } = this.props
         let messages = []
 
+        
+
         this.state.messages.forEach((i) => {
             if (i.tags.includes(box)) {
                 messages.push(i)
@@ -330,13 +332,23 @@ export default class Messages extends Component {
             <div className='Messages'>
                 <h3>Messages</h3>
 
-                <ul>{messages.map((x , i) => (
-                    <li className="message" key={i}
-                        onClick={this.openMessage}
-                        id={x.id}>
-                        {x.subject}
-                    </li>
-                ))}</ul>
+                <ul>{messages.map((x , i) => { 
+                    if (x.read === false) {
+                        return  <li className="message" key={i}
+                                    onClick={this.openMessage}
+                                    style={{fontWeight: 'bold'}}
+                                    id={x.id}>
+                                    {x.subject}
+                                </li>
+                    } else {
+                        return  <li className="message" key={i}
+                                    onClick={this.openMessage}
+                                    id={x.id}>
+                                    style={{fontWeight: 'light'}}
+                                    {x.subject}
+                                </li>
+                        }
+                })}</ul>
 
                 <Viewer 
                     addTagToMessage={this.addTagToMessage}
