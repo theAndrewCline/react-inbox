@@ -345,25 +345,26 @@ export default class Messages extends Component {
 
         return (
             <div className='Messages'>
-                <h3>Messages</h3>
-
-                <ul>{messages.map((x , i) => { 
-                    if (x.read === false) {
-                        return  <li className="message" key={i}
-                                    onClick={this.openMessage}
-                                    style={{fontWeight: 'bold'}}
-                                    id={x.id}>
-                                    {x.subject}
-                                </li>
-                    } else {
-                        return  <li className="message" key={i}
-                                    onClick={this.openMessage}
-                                    style={{fontWeight: 'normal'}}
-                                    id={x.id}>
-                                    {x.subject}
-                                </li>
-                        }
-                })}</ul>
+                <div style={{ overflow: 'scroll' }}>
+                    <ul>{messages.map((x , i) => { 
+                        if (x.read === false) {
+                            return  <li className="message" key={i}
+                                        onClick={this.openMessage}
+                                        style={{fontWeight: 'bold'}}
+                                        id={x.id}>
+                                        {x.subject}
+                                    </li>
+                        } else {
+                            return  <li className="message" key={i}
+                                        onClick={this.openMessage}
+                                        style={{fontWeight: 'normal'}}
+                                        id={x.id}>
+                                        {x.subject}
+                                    </li>
+                            }
+                        })}
+                    </ul>
+                </div>
 
                 <Viewer 
                     addTagToMessage={this.addTagToMessage}
