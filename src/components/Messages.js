@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Viewer from './Viewer'
+// import Message from './Message'
 
 export default class Messages extends Component {
 
@@ -267,16 +268,23 @@ export default class Messages extends Component {
         this.openMessage = this.openMessage.bind(this)
         this.addTagToMessage = this.addTagToMessage.bind(this)
         this.removeTagFromMessage = this.removeTagFromMessage.bind(this)
+        // this.markMessageAsRead = this.markMessageAsRead.bind(this)
     }
 
     openMessage(event) {
         let index
+        const messagesCopy = [...this.state.messages]
         this.state.messages.forEach((message, i) => {
             if (Number(message.id) === Number(event.target.id)) {
                 index = i 
+                messagesCopy[i].read = true
             }
         })
-        this.setState( prev => ({selectedMessage: index}))
+
+        this.setState( prev => ({selectedMessage: index, 
+                                 messages: messagesCopy    
+                                }
+        ))
     }
 
     addTagToMessage(event) {
@@ -309,15 +317,25 @@ export default class Messages extends Component {
         this.setState( prev => ({
             messages: messagesCopy
         }))
-
-        console.log(targetMessage.tags)
     }
+
+    // markMessageAsRead(messageID) {
+    //     const messagesCopy = [...this.state.messages]
+    //     messagesCopy.forEach( (i) => {
+    //         if (i.id === messageID) i.read = 'true'
+    //     })
+
+    //     this.setState( prev => { messages: messagesCopy})
+    // }
+
 
     render() {
 
         const currentMessage = this.state.messages[this.state.selectedMessage]
         const { tags, box } = this.props
         let messages = []
+
+        
 
         this.state.messages.forEach((i) => {
             if (i.tags.includes(box)) {
@@ -329,13 +347,23 @@ export default class Messages extends Component {
             <div className='Messages'>
                 <h3>Messages</h3>
 
-                <ul>{messages.map((x , i) => (
-                    <li className="message" key={i}
-                        onClick={this.openMessage}
-                        id={x.id}>
-                        {x.subject}
-                    </li>
-                ))}</ul>
+                <ul>{messages.map((x , i) => { 
+                    if (x.read === false) {
+                        return  <li className="message" key={i}
+                                    onClick={this.openMessage}
+                                    style={{fontWeight: 'bold'}}
+                                    id={x.id}>
+                                    {x.subject}
+                                </li>
+                    } else {
+                        return  <li className="message" key={i}
+                                    onClick={this.openMessage}
+                                    style={{fontWeight: 'normal'}}
+                                    id={x.id}>
+                                    {x.subject}
+                                </li>
+                        }
+                })}</ul>
 
                 <Viewer 
                     addTagToMessage={this.addTagToMessage}

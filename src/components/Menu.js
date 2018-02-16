@@ -2,10 +2,7 @@ import React, {Component} from 'react';
 
 import Tag from './Menu/Tag'
 
-export default class Menu extends Component {
-
-    render() {
-
+export default class Menu extends Component { render() { 
         const { tags, switchBox, addTag } = this.props
 
         return (
