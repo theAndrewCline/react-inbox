@@ -1,4 +1,4 @@
-# react-inbox
+* React Inbox
 This will be a react made inbox. The hope is to make a design for what an inbox could look like. 
 
 - [x] It should be able to read and display emails. When you select an inbox you should be able preview all the emails in that inbox. 
