@@ -8,7 +8,7 @@ This will be a react made inbox. The hope is to make a design for what an inbox 
 - [x] It should be able to create new inboxes/new tags.
 - [x] Tags should be able to be removed
 - [ ] You should be able to delete inboxes 
-- [ ] Emails should have a status of read/unread that can be toggled by opening the email. 
+- [x] Emails should have a status of read/unread that can be toggled by opening the email. 
 This status should also be able to be manually applied.
 - [ ] Style! Style! Style!
     - [ ] mobile first, responsive design 
