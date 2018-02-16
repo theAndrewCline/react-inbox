@@ -3,6 +3,7 @@ import './App.css';
 
 import Messages from './components/Messages'
 import Menu from './components/Menu'
+import Nav from './components/Nav'
 
 export default class App extends Component {
   constructor() {
@@ -39,6 +40,7 @@ export default class App extends Component {
 
     return (
       <div className="App">
+        < Nav />
         < Menu switchBox={this.switchBox} addTag={this.addTag} tags={tags}/>
         < Messages box={currentBox} tags={tags}/> 
       </div>
