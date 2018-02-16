@@ -5,6 +5,7 @@ import ViewerFooter from './Viewer/ViewerFooter'
 
 export default class Viewer extends Component {
 
+
     render() {
 
         const { addTagToMessage, currentMessage, removeTagFromMessage, tags } = this.props
