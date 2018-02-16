@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class Nav extends Component {
     render() {
         const style = {
-            backgroundColor: 'black'
+            backgroundColor: 'darkslategrey'
         }
 
         return (
