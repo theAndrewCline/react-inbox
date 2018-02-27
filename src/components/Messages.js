@@ -299,7 +299,6 @@ export default class Messages extends Component {
 		this.openMessage = this.openMessage.bind(this)
 		this.addTagToMessage = this.addTagToMessage.bind(this)
 		this.removeTagFromMessage = this.removeTagFromMessage.bind(this)
-		// this.markMessageAsRead = this.markMessageAsRead.bind(this)
 	}
 
 	openMessage(event) {
