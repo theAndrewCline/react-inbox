@@ -4,7 +4,9 @@
 	--title-font: 'Open Sans', sans-serif;
 }
 
-* {font-family: var(--title-font)}
+* {
+	font-family: var(--title-font);
+}
 
 .App {
 	max-height: 100vh;
